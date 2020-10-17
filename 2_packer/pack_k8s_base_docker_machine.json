@@ -157,13 +157,14 @@
     },
    {
       "type": "file",
-      "destination": "../K8s-Workshop-NS-Router/3_terraform/k8s-key.pem",
+      "destination": "../3_terraform/k8s-key.pem",
       "source": "/tmp/sshkey",
 	  "direction" : "download",
       "only": [
         "k8s-base-docker-machine"
       ]
     },
+
    {
       "type": "file",
       "destination": "keys/k8s-key.pem",
