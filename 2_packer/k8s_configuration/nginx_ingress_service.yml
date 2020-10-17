@@ -21,7 +21,7 @@ spec:
     port: 8088
     targetPort: 8088
     nodePort: 31088
-#  externalTrafficPolicy: Local
+  externalTrafficPolicy: Local
   selector:
     app: nginx-ingress
     
