@@ -15,7 +15,11 @@ sudo dnf install git -y
 
 git clone https://github.com/nginxinc/kubernetes-ingress/
 
-cd kubernetes-ingress
+cd kubernetes-ingress/deployments
+
+git checkout v1.9.0
+
+cd ..
 
 cp ~/certs/nginx-repo.* .
 
@@ -29,7 +33,6 @@ cp ~/certs/nginx-repo.* .
 # Make KIC with App protect included
 
 sudo make DOCKERFILE=appprotect/DockerfileWithAppProtectForPlus PREFIX=dockerregistry.workshop0001.nginxdemo.net:443/nginx-plus-ingress
-
 
 
 
