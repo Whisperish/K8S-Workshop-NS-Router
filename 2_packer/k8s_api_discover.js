@@ -132,11 +132,11 @@ function updatenodePorts(r) {
 
                 for ( var subrequestcounter in ipportentries ) {
                     r.subrequest('/api/6/stream/upstreams/k8s_https_cluster_surface/servers/'+ipportentries[subrequestcounter].id, { method: 'DELETE', body: '' } , function(res) {
-                        if (res.status = 200) {
+                        if (res.status != 200) {
                             r.return(res.status,'We have barfed trying to add new servers to the upstream group....');
                             return;
                         }
-                    r.return(res.status,res.body);
+                    //r.return(res.status,res.body);
                     });
                 debugstring=debugstring+ipportentries[subrequestcounter].id+' , ';
 
