@@ -43,10 +43,14 @@ spec:
         args:
           - -nginx-plus
           - -default-server-tls-secret=default/default-server-secret
-         #- -v=3 # Enables extensive logging. Useful for trooublshooting.
-         #- -report-ingress-status
-         #- -external-service=nginx-ingress
-         #- -enable-leader-election
+          - -enable-app-protect
+          #- -report-ingress-status
+          #- -external-service=nginx-ingress
+          #- -enable-leader-election
+          #- -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
+          #- -v=3 # Enables extensive logging. Useful for troubleshooting.
+          #- -enable-prometheus-metrics
+          #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
       - image: nginx/nginx-prometheus-exporter:0.2.0
         name: nginx-prometheus-exporter
         ports:
