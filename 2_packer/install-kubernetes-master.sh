@@ -55,7 +55,7 @@ sudo sh -c 'echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables'
 
 # Install this K8s machine as the Master Node
 
-sudo kubeadm init | tee k8s_master_initiation_log.txt
+sudo kubeadm init --config kubeadm.config | tee k8s_master_initiation_log.txt
 
 # Setup the 'centos' user for kubectl command line access
 
@@ -71,8 +71,15 @@ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl versio
 # Extract the 'join' command from the k8s initiation log, and make sure the switch to skip ca verification is set.
 
 cat k8s_master_initiation_log.txt | grep 'kubeadm join' | tr -d '\n'  | sed 's/.$//'>worker_node_join_command.sh
+
 echo -n " --discovery-token-unsafe-skip-ca-verification">>worker_node_join_command.sh
 export JOIN_COMMAND="sudo `cat worker_node_join_command.sh`"
+echo "--------------------------------------------------"
+echo "----- This is the generated join command: --------"
+echo "--------------------------------------------------"
+cat worker_node_join_command.sh
+echo "--------------------------------------------------"
+
 
 # Ensure the ssh key that enables logging on to the worker nodes is correctly protected via linux permissions
 

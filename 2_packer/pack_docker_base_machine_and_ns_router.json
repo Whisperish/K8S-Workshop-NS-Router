@@ -196,8 +196,46 @@
         "k8s-base-docker-machine"
       ]
     },
-	
-
+	{
+      "type": "file",
+      "source": "kubeadm.config",
+      "destination": "kubeadm.config",
+      "only": [
+        "k8s-base-docker-machine"
+      ]
+    },
+	{
+      "type": "file",
+      "source": "nginx-meshctl_linux.gz",
+      "destination": "nginx-meshctl_linux.gz",
+      "only": [
+        "k8s-base-docker-machine"
+      ]
+    },
+	{
+      "type": "file",
+      "source": "nginx-mesh-images-0.6.0.tar.gz",
+      "destination": "nginx-mesh-images-0.6.0.tar.gz",
+      "only": [
+        "k8s-base-docker-machine"
+      ]
+    },
+	{
+      "type": "file",
+      "source": "setup-service-mesh-registry-images.sh",
+      "destination": "setup-service-mesh-registry-images.sh",
+      "only": [
+        "k8s-base-docker-machine"
+      ]
+    },
+	{
+      "type": "file",
+      "source": "install_NGINX_Service_Mesh.sh",
+      "destination": "install_NGINX_Service_Mesh.sh",
+      "only": [
+        "k8s-base-docker-machine"
+      ]
+    },
 
 
     {

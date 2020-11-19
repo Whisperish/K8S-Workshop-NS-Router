@@ -38,7 +38,8 @@ resource "null_resource" "buildimages" {
   
         inline = [
 		"./build_nginx_plus_images.sh",
-		"./build_nginx_plus_ingress_controller_image.sh"
+		"./build_nginx_plus_ingress_controller_image.sh",
+		"./setup-service-mesh-registry-images.sh"
 
     ]
   }
