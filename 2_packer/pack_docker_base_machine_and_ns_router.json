@@ -204,18 +204,16 @@
         "k8s-base-docker-machine"
       ]
     },
-	{
-      "type": "file",
-      "source": "nginx-meshctl_linux.gz",
-      "destination": "nginx-meshctl_linux.gz",
-      "only": [
-        "k8s-base-docker-machine"
-      ]
-    },
-	{
-      "type": "file",
-      "source": "nginx-mesh-images-0.6.0.tar.gz",
-      "destination": "nginx-mesh-images-0.6.0.tar.gz",
+    {
+      "type": "shell",
+      "inline": [
+ 
+		"echo '---------------------------------------------------------------------'",
+		"echo '------------- DOWNLOADING NGINX SERVICE MESH PACKAGES ---------------'",
+		"echo '---------------------------------------------------------------------'",
+		"curl https://emea-terraform-and-packer.s3.eu-west-2.amazonaws.com/nginx-meshctl_linux.gz --output nginx-meshctl_linux.gz",
+        "curl https://emea-terraform-and-packer.s3.eu-west-2.amazonaws.com/nginx-mesh-images-0.6.0.tar.gz --output nginx-mesh-images-0.6.0.tar.gz"
+      ],
       "only": [
         "k8s-base-docker-machine"
       ]
