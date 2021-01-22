@@ -16,6 +16,7 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9113"
     spec:
+      serviceAccountName: nginx-ingress
       containers:
       - image: dockerregistry.workshop0001.nginxdemo.net:443/nginx-plus-ingress:1.9.0
         imagePullPolicy: Always
